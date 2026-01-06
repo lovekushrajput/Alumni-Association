@@ -5,9 +5,7 @@ import { connectMongo } from './config/mongo.js';
 import dotenv from "dotenv";
 dotenv.config({ path: ".env" }); // 👈 make sure it loads from root
 
-console.log("MONGO_URI:", process.env.MONGO_URI);
-console.log("JWT_SECRET:", process.env.JWT_SECRET);
-
+console.log("MongoDB connected");
 
 loadEnv();
 
@@ -19,7 +17,7 @@ async function start() {
 		const server = http.createServer(app);
 		server.listen(PORT, () => {
 			// eslint-disable-next-line no-console
-			console.log(`AlumniConnect API listening on port ${PORT}`);
+			console.log(`Server running on port ${PORT}`);
 		});
 	} catch (err) {
 		// eslint-disable-next-line no-console
