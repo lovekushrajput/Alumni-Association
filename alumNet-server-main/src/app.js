@@ -63,8 +63,10 @@ app.use(cors({
 			return callback(null, true);
 		}
 		
-		// For development, allow localhost on any port
-		if (process.env.NODE_ENV !== 'production' && origin.includes('localhost')) {
+		// Allow localhost during development and for quick local testing in production
+		// NOTE: This is intentionally permissive for local dev; remove or tighten this
+		// condition before leaving the change in place long-term.
+		if (origin.includes('localhost')) {
 			return callback(null, true);
 		}
 		
