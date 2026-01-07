@@ -63,6 +63,11 @@ app.use(cors({
 		if (origin.includes('localhost')) {
 			return callback(null, true);
 		}
+
+		 // allow ALL vercel deployments (preview + prod)
+      if (origin.endsWith(".vercel.app")) {
+        return callback(null, true);
+      }
         
 		return callback(new Error('Not allowed by CORS'));
 	},
